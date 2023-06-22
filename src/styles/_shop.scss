@@ -1,0 +1,79 @@
+/*********** Layout container *************/
+.reelUp_shop_container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/********** Banner section styling ***********/
+.reelUp-shop-banner {
+    position: relative;
+    padding-top: 15%;
+    min-height: 240px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.36)), url(/cover-dummy-min.jpg);
+    width: 100%;
+
+    &.reelUp-shop-cover-dummy {
+        background-size: contain;
+        background-position: center;
+        background-repeat: repeat;
+        display: block;
+    }
+    &.reelUp-banner {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+.reelUp-shop-banner-content {
+    padding: 0 30px;
+    width: 100%;
+    @include flex($justify-content: space-between, $wrap: wrap, $align-items: center);
+    position: absolute;
+    top: calc(100% - 110px);
+    left: 0;
+
+    >div {
+        flex: 1;
+    }
+}
+
+.reelUp-shop-profile {
+    @include flex($align-items: center);
+    margin-left: 50px;
+    .reelUp-shop-profile-pic {
+        display: flex;
+        width: 100%;
+        max-width: 150px;
+        max-height: 150px;
+        object-fit: contain;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px #0000002e;
+        >img {
+            object-fit: cover;
+        }
+    }
+
+    .reelUp-shop-name {
+        @include flex($align-items: center);
+        @include font(25px, 1, 600, #fff);
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+}
+
+/************** Blocks styling ***************/
+.reelUp-shop-blocks {
+    margin-top: 100px;
+}
+.reelUp-block-heading {
+    @include font(30px, 1.5, 600, #000);
+    text-align: center;
+}
+.reelUp-block-wrapper {
+    &:not(:last-child) {
+        margin-bottom: 50px;
+    }
+}

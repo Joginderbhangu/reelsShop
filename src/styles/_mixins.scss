@@ -1,0 +1,186 @@
+@for $i from 0 through 100 {
+    .mg-t-#{$i} {
+        margin-top: #{$i}px !important;
+    }
+
+    .mg-b-#{$i} {
+        margin-bottom: #{$i}px !important;
+    }
+
+    .mg-r-#{$i} {
+        margin-right: #{$i}px !important;
+    }
+
+    .mg-l-#{$i} {
+        margin-left: #{$i}px !important;
+    }
+
+    .mg-#{$i} {
+        margin: #{$i}px !important;
+    }
+}
+
+@for $i from 0 through 100 {
+    .pd-t-#{$i} {
+        padding-top: #{$i}px !important;
+    }
+
+    .pd-b-#{$i} {
+        padding-bottom: #{$i}px !important;
+    }
+
+    .pd-r-#{$i} {
+        padding-right: #{$i}px !important;
+    }
+
+    .pd-l-#{$i} {
+        padding-left: #{$i}px !important;
+    }
+
+    .pd-#{$i} {
+        padding: #{$i}px !important;
+    }
+}
+
+@mixin font($font-size: null, $line-height: null, $weight: null, $font-color: null) {
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $font-color;
+    font-weight: $weight;
+}
+
+@mixin flex($wrap: null, $align-items: null, $justify-content: null, $flex-direction: null) {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+    -ms-flex-align: $align-items;
+    align-items: $align-items;
+    justify-content: $justify-content;
+    flex-direction: $flex-direction;
+}
+
+@mixin PolarisBoxShadow {
+    -webkit-box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+    -moz-box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+    box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+}
+
+@mixin Transition($value) {
+    transition: all $value ease-in-out;
+}
+
+@mixin Badge ($value: null, $background: #ffea8a) {
+    &:after {
+        content: '#{$value}';
+        display: inline-flex;
+        padding: 1px 8px;
+        background-color: $background;
+        border-radius: 40px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #3d3d3d;
+        margin-left: 5px;
+    }
+}
+
+@mixin ScrollBar ($width) {
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: $width;
+        border-radius: 30px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #fff;
+        border: 1px solid rgb(223, 223, 223);
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(191, 191, 191);
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #8f8f8f;
+    }
+}
+
+@mixin TextClamp($value) {
+    display: -webkit-box;
+    -webkit-line-clamp: $value;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+@mixin BgHoverColor($value) {
+    background-color: darken($value, 4);
+}
+
+@mixin pulseAnimation($width: 20px, $height: 20px, $top: null, $left: null, $right: null, $transform: null, $color: null) {
+    .reelUp_pulse_circle {
+        position: absolute;
+        top: $top;
+
+        @if $left {
+            left: $left;
+        }
+
+        @else {
+            right: $right;
+        }
+
+        @if $transform {
+            -webkit-transform: translateX($transform) translateY($transform);
+            transform: translateX($transform) translateY($transform);
+        }
+
+        width: $width;
+        height: $height;
+        z-index: 8;
+        pointer-events: none;
+    }
+
+
+    .reelUp_pulse_circle:before {
+        content: "";
+        position: relative;
+        display: block;
+        width: 300%;
+        height: 300%;
+        box-sizing: border-box;
+        margin-left: -100%;
+        margin-top: -100%;
+        border-radius: 45px;
+        background-color: $color;
+        -webkit-animation: reelUp-pulse-ring 1.25s cubic-bezier(.215, .61, .355, 1) infinite;
+        animation: reelUp-pulse-ring 1.25s cubic-bezier(.215, .61, .355, 1) infinite;
+    }
+
+    .reelUp_pulse_circle:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+    }
+
+    @keyframes reelUp-pulse-ring {
+        0% {
+            transform: scale(0.25);
+        }
+
+        80%,
+        100% {
+            opacity: 0;
+        }
+    }
+}

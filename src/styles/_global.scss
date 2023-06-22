@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: rgb(255, 205, 205);
+}
+
+.slick {
+    .slick-track {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+
+.reelUp_slider_loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2147483647;
+    pointer-events: none;
+
+    img {
+        width: 100px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    &.reelUp_show {
+        display: block;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+}
+
+.reelUp_slider_loader.reelUp_show {
+    display: block;
+}
+
+[class*="_ratio_img"] {
+    position: relative;
+}
+
+[class*="_ratio_img"]:after {
+    content: "";
+    display: block;
+}
+
+[class*="_ratio_img"] img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reelUp_1-1_ratio_img:after {
+    padding-top: 100%;
+}
+
+.reelUp_3-4_ratio_img:after {
+    padding-top: 133.3333%;
+}
+
+.reelUp_4-5_ratio_img:after {
+    padding-top: 125%;
+}
+
+.reelUp_4-6_ratio_img:after {
+    padding-top: 150%;
+}
+
+.line_through {
+    text-decoration: line-through;
+}
+
+// /** grid and slider loader **/
+.reelUp_loader_wrapper {
+    &.reelUp_loading {
+        display: block !important;
+    }
+}
+
+/** button loader **/
+.reelUp_loading_button {
+    position: relative;
+    pointer-events: none;
+
+    .reelUp_loading {
+        width: 25px;
+        height: 25px;
+        border: 3px solid transparent;
+        border-radius: 50%;
+        animation-name: reelUpSpin;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        position: absolute !important;
+        left: calc(50% - 12.5px);
+        top: calc(50% - 12.5px);
+        display: none;
+    }
+
+    .reelUp_button_text {
+        pointer-events: none;
+        color: transparent !important;
+        visibility: hidden !important;
+    }
+
+    .reelUp_loading {
+        display: block;
+    }
+}
+
+.reelUp-rating-container {
+    @include flex($align-items: center);
+
+    .reelUp-rating-stars {
+        @include flex($align-items: center);
+
+        &[reelup-rating="0"] {
+            display: none !important;
+        }
+
+        svg {
+            width: 18px;
+            // fill: #ffbf00;
+        }
+    }
+
+    .reelUp-rating-count {
+        @include font($font-size: 13px, $line-height: 1, $weight: 400, $font-color: #2F2E2E);
+        margin-left: 4px;
+    }
+}
+
+/************** Toaster styling *******************/
+#reelup_toaster_wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2147483647;
+    animation: reelUpfadeIn 0.5s ease-in-out;
+
+    .reelup_toaster {
+        @include flex($justify-content: center, $align-items: center);
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+    .reelup_toaster_icon_wrapper {
+        position: relative;
+        width: 22px;
+        height: 22px;
+        margin-right: 5px;
+        display: flex;
+
+        >span {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: #fff;
+        }
+    }
+
+    &.reelUp_success_toaster {
+        .reelup_toaster {
+            background-color: #000000de;
+        }
+
+        .reelup_toaster_icon_wrapper {
+            .reelup_toaster_success_icon {
+                display: block;
+            }
+        }
+    }
+
+    &.reelUp_error_toaster {
+        .reelup_toaster {
+            background-color: #d82c0dbd;
+        }
+
+        .reelup_toaster_icon_wrapper {
+            .reelup_toaster_error_icon {
+                display: block;
+            }
+        }
+    }
+
+    .reelup_toaster_text {
+        @include font(15px, 1, 500, #fff);
+        white-space: nowrap;
+    }
+}

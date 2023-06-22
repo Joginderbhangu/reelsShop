@@ -1,3 +1,4 @@
+'use client'
 import * as React from 'react';
 import { CommonLayout } from './common/CommonLayout';
 
@@ -5,17 +6,22 @@ interface IBannerSectionProps {
 }
 
 const BannerSection: React.FunctionComponent<IBannerSectionProps> = (props) => {
+  const [hasBanner, setHasBanner] = React.useState(false);
   return (
-    <div className='h-2/4 relative'>
-        <img src='/banner.png' alt='Banner image' className='w-full h-full max-h-96 mb-12' />
-        <CommonLayout>
-            <div className='absolute -bottom-0 flex gap-5 items-center'>
-                <span className='border-2 border-gray-400 rounded-2xl h-48 w-48 overflow-hidden'>
-                    <img src='/profile-image.png' alt='Profile image' className='w-full h-full' />
-                </span>
-                <h3 className='text-2xl text-white font-extrabold tracking-wide'>Name of Store goes Here</h3>
-            </div>
-        </CommonLayout>
+
+    <div className={`reelUp-shop-banner ${hasBanner ? 'reelUp-shop-cover' : 'reelUp-shop-cover-dummy'}`}>
+      <div className='reelUp-shop-banner-content'>
+        <div className='reelUp-shop-profile'>
+          <div className='reelUp-shop-profile-pic'>
+            <img src='/profile.svg' alt="" />
+          </div>
+          <div className='reelUp-shop-name'>
+            <span>
+              Dot & Key Skincare
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
   )
 };
