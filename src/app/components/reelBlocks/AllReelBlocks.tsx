@@ -8,7 +8,7 @@ type Props = {}
 
 const AllReelBlocks = async (props: Props) => {
 
-  const ReelBlocks: ReelBlocks[] = await fetchAllReelBlocks()
+  const ReelBlocks: ReelBlocks[] = await fetchAllReelBlocks();
 
   return (
     <CommonLayout>

@@ -1,0 +1,133 @@
+/********** Card styling *************/
+.reelUp_card {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #00000026;
+    overflow: hidden;
+}
+
+.reelUp_card_video_wrapper {
+    position: relative;
+    cursor: pointer;
+    padding-top: 177.5%;
+    z-index: 8;
+
+    .reelUp_card_video {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+/********** save badge wrapper ***********/
+.reelUp_save_badge_wrapper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    z-index: 99;
+    border-radius: 5px;
+    overflow: hidden;
+    max-width: 200px;
+
+    .reelUp_save_badge {
+        background-color: #008208;
+        display: flex;
+        display: -webkit-flex;
+        align-items: center;
+
+        .reelUp_save_badge_text {
+            padding-left: 10px;
+            font-size: 13px;
+            line-height: 1;
+            color: rgba(255, 255, 255, 1);
+            font-weight: 500;
+
+            .reelUp_saved_price {
+                margin-left: 3px;
+            }
+        }
+    }
+
+    .reelUp_price_save {
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-left: 12px solid #008208;
+        border-bottom: 12px solid transparent;
+        position: relative;
+    }
+}
+
+/*********** Reels Views styling ***********/
+.reelup_reels_count_wrapper {
+    @include flex($align-items: center);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 4px 8px;
+    background-color: #97979761;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    z-index: 99;
+
+    .reelup_reels_count {
+        @include font(12px, 1, 500, #fff);
+        margin-left: 5px;
+    }
+
+    .reelup_count_icon {
+        @include flex($align-items: center, $justify-content: center);
+        width: 16px;
+        height: 16px;
+
+        svg path {
+            fill: #fff;
+        }
+    }
+}
+
+/************ Product card styling *************/
+.reelUp_product_card {
+    @include flex($align-items: flex-start, $flex-direction: column);
+    position: relative;
+    padding: 30px 15px 15px;
+    background: #fff;
+    z-index: 9;
+
+    .reelUp_slider_featured_image {
+        position: absolute;
+        top: -40px;
+        left: 10px;
+        width: 55px;
+        height: 55px;
+        z-index: 1;
+
+        >img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px #0000002b;
+            background-color: #fff;
+        }
+    }
+
+    .reelUp_slider_title {
+        @include TextClamp(1);
+        @include font(14px, 1.4, 500, #000);
+    }
+
+    .reelUp_slider_price {
+        @include flex($wrap: wrap);
+        gap: 5px;
+        @include font(15px, 1.4, 500, #000);
+        margin-top: 8px;
+
+        .reelUp_slider_regular_price {
+            text-decoration: line-through;
+        }
+    }
+}
