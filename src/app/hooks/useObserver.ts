@@ -1,7 +1,7 @@
 import { useEffect, useState, RefObject } from 'react'
 
 
-export default function useObserver(ref:RefObject<HTMLElement>, rootMargin = "50") {
+export default function useObserver(ref:RefObject<HTMLElement>, rootMargin = "250") {
     const [isVisible, setIsVisible] = useState(false);
 
     const options = {
