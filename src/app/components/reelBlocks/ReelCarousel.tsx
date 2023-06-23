@@ -4,6 +4,7 @@ import VideoPlayer from '../common/VideoPlayer';
 import ReelsViews from '../common/ReelsViews';
 import SaleBadge from '../common/SaleBadge';
 import ProductCard from '../common/ProductCard';
+import CustomSlider from '../common/CustomSlider';
 
 
 type Props = {
@@ -12,7 +13,8 @@ type Props = {
 
 export default function ReelCarousel({ reels }: Props) {
   return (
-    <CarouselWrapper>
+    // <CarouselWrapper>
+    <CustomSlider>
       {
         reels.map(reel => (
           <div className='reelUp_card' key={reel.id}>
@@ -33,6 +35,7 @@ export default function ReelCarousel({ reels }: Props) {
           </div>
         ))
       }
-    </CarouselWrapper >
+    </CustomSlider>
+    // </CarouselWrapper >
   )
 }

@@ -1,0 +1,45 @@
+.reelUp_custom_slider_wrapper {
+    position: relative;
+}
+
+.reelUp_custom_slider {
+    position: relative;
+    @include flex();
+    overflow: auto;
+    gap: 25px;
+    z-index: 8;
+
+    .reelUp_card {
+        min-width: 250px;
+    }
+}
+
+.reelUp_slider_navigators {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 9;
+    @include flex($justify-content: space-between);
+    pointer-events: none;
+}
+
+.reelUp_slider_arrow {
+    width: 35px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    padding: 5px;
+    background: #ffffff7a;
+    cursor: pointer;
+    transition: all 130ms ease-in-out;
+    pointer-events: all;
+
+    &.reelUp_slider_prev {
+        border-radius: 0 5px 5px 0;
+    }
+    &.reelUp_slider_next {
+        border-radius: 5px 0 0 5px;
+    }
+}
